@@ -1,0 +1,804 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>con_ex</name>
+    </assembly>
+    <members>
+        <member name="T:ConsoleEx.ConsoleBase">
+            <summary>
+            Base class of the extended console library
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.ConsoleBase.TIME_WAIT">
+            <summary>
+            CPU sleep time for handlers
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.ConsoleBase.Init">
+            <summary>
+            Initializes the extended console with the default buffer area
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ConsoleEx.ConsoleBase.Init(System.Int32,System.Int32)">
+            <summary>
+            Initializes the extended console
+            </summary>
+            <param name="width">Buffer area width</param>
+            <param name="height">Buffer are height</param>
+            <returns></returns>
+        </member>
+        <member name="M:ConsoleEx.ConsoleBase.DeInit">
+            <summary>
+            Deinitializes the extended console
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ConsoleEx.ConsoleBase.ReDraw">
+            <summary>
+            Refreshes the console window
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.ConsoleBase.Draw">
+            <summary>
+            Redraws the whole console
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.ConsoleBase.Draw(ConsoleEx.Rect)">
+            <summary>
+            Redraws the console
+            </summary>
+            <param name="bounds">Redraw area</param>
+        </member>
+        <member name="M:ConsoleEx.ConsoleBase.Draw(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Redraws the console
+            </summary>
+            <param name="x">X</param>
+            <param name="y">Y</param>
+            <param name="width">Width</param>
+            <param name="height">Height</param>
+        </member>
+        <member name="M:ConsoleEx.ConsoleBase.ClearScreen">
+            <summary>
+            Clears the console, resets the buffer
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.ConsoleBase.ClearBuffer">
+            <summary>
+            Changes all buffers to not draw enything even if needed
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.ConsoleBase.SetHotkeyHandler(ConsoleEx.ConsoleBase.HotKeyHandler)">
+            <summary>
+            Sets the hotkey handler, only one can be set
+            </summary>
+            <param name="hndl"></param>
+        </member>
+        <member name="P:ConsoleEx.ConsoleBase.Drawing">
+            <summary>
+            Gets if the console is currently drawing
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.ConsoleBase.Bg">
+            <summary>
+            Gets/Sets the console's background color
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.ConsoleBase.Fg">
+            <summary>
+            Gets/Sets the console's foreground color
+            </summary>
+        </member>
+        <member name="T:ConsoleEx.ConsoleBase.HotKeyHandler">
+            <summary>
+            Key handler that is on application level
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:ConsoleEx.ConsoleMouse">
+            <summary>
+            Mouse handler class for the extended console, experimental
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.ConsoleMouse.SetCursorState(System.Boolean)">
+            <summary>
+            Enables/Disables the mouse cursor
+            </summary>
+            <param name="input"></param>
+        </member>
+        <member name="M:ConsoleEx.ConsoleMouse.SetMouseKeyHandler(ConsoleEx.ConsoleMouse.MouseKeyHandler)">
+            <summary>
+            Sets the mouse key handler, only one can be set
+            </summary>
+            <param name="hndl"></param>
+        </member>
+        <member name="M:ConsoleEx.ConsoleMouse.GetCursorState">
+            <summary>
+            Gets if the mouse cursor is enabled
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:ConsoleEx.ConsoleMouse.X">
+            <summary>
+            Mouse cursor's X position
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.ConsoleMouse.Y">
+            <summary>
+            Mouse cursor's Y position
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.ConsoleMouse.Enabled">
+            <summary>
+            Gets if the mouse is enabled
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.ConsoleMouse.MouseKey">
+            <summary>
+            Gets if the mouse key handler is enabled
+            </summary>
+        </member>
+        <member name="T:ConsoleEx.ConsoleMouse.MouseKeyHandler">
+            <summary>
+            Mouse key handler
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:ConsoleEx.Rect">
+            <summary>
+            Rectangle
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.Rect.x">
+            <summary>
+            Rectangle's X position
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.Rect.y">
+            <summary>
+            Rectangle's Y position
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.Rect.width">
+            <summary>
+            Rectangle's width
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.Rect.height">
+            <summary>
+            Rectangle's height
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.Rect.#ctor">
+            <summary>
+            Creates a new instance of rectangle
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.Rect.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates a new instance of rectangle
+            </summary>
+            <param name="x">X position</param>
+            <param name="y">Y position</param>
+            <param name="width">Width</param>
+            <param name="height">Height</param>
+        </member>
+        <member name="T:ConsoleEx.NativeClass">
+            <summary>
+            Class for DLLImports, handlers
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.NativeClass.NullThread(System.Threading.Thread@)">
+            <summary>
+            Helper class for handlers, nulls the thread after exited
+            </summary>
+            <param name="thd"></param>
+        </member>
+        <member name="T:ConsoleEx.NativeClass.MouseButtons">
+            <summary>
+            Mouse buttons for the mouse handler
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.NativeClass.MouseButtons.Left">
+            <summary>
+            Left mouse button
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.NativeClass.MouseButtons.Right">
+            <summary>
+            Right mouse button
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.NativeClass.MouseButtons.Middle">
+            <summary>
+            Middle mouse button
+            </summary>
+        </member>
+        <member name="T:ConsoleEx.ControlBase">
+            <summary>
+            Base class of the displayable controls, must be inherited
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.ControlBase.bg">
+            <summary>
+            Control's background color
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.ControlBase.fg">
+            <summary>
+            Control's foreground color
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.ControlBase.Draw">
+            <summary>
+            Control's drawing code, must be overridden
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.ControlBase.SetBounds(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Sets the control's position and size
+            </summary>
+            <param name="x">X position</param>
+            <param name="y">Y position</param>
+            <param name="width">Width</param>
+            <param name="height">Height</param>
+        </member>
+        <member name="P:ConsoleEx.ControlBase.X">
+            <summary>
+            Gets the control's relative x position
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.ControlBase.Y">
+            <summary>
+            Gets the control's relative y position
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.ControlBase.Width">
+            <summary>
+            Gets the control's width
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.ControlBase.Height">
+            <summary>
+            Gets the control's height
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.ControlBase.Bg">
+            <summary>
+            Gets/Sets the control's background color
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.ControlBase.Fg">
+            <summary>
+            Gets/Sets the control's foreground color
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.ControlBase.Bounds">
+            <summary>
+            Gets the control's bounds, x and y are absolute positions
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.ControlBase.Parent">
+            <summary>
+            Gets the control's parent
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.ControlBase.Enabled">
+            <summary>
+            Gets/Sets the control's enabled status
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.ControlBase.Visible">
+            <summary>
+            Gets/Sets the control's visibility
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.ControlBase.Focused">
+            <summary>
+            Gets the control's focus
+            </summary>
+        </member>
+        <member name="T:ConsoleEx.Container">
+            <summary>
+            Base class of the containers, which can contain controls, inherited from ControlBase
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.Container.#ctor">
+            <summary>
+            Creates a new instance of container
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.Container.Add(ConsoleEx.Control)">
+            <summary>
+            Adds a control to the container
+            </summary>
+            <param name="input"></param>
+        </member>
+        <member name="M:ConsoleEx.Container.Rem(ConsoleEx.Control)">
+            <summary>
+            Removes a control from the container
+            </summary>
+            <param name="input"></param>
+        </member>
+        <member name="M:ConsoleEx.Container.Add(ConsoleEx.Container)">
+            <summary>
+            Adds a container to the container
+            </summary>
+            <param name="input"></param>
+        </member>
+        <member name="M:ConsoleEx.Container.Rem(ConsoleEx.Container)">
+            <summary>
+            Removes a container from the container
+            </summary>
+            <param name="input"></param>
+        </member>
+        <member name="M:ConsoleEx.Container.RepositionControls">
+            <summary>
+            Only needed if container bounds were changed after controls were added
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.Container.RepositionContainers">
+            <summary>
+            Only needed if container bounds were changed after controls were added
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.Container.Draw">
+            <summary>
+            Draws the container
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.Container.RegenTabs">
+            <summary>
+            Regenerates the tabs based on the collection
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.Container.NextFocus(ConsoleEx.Control)">
+            <summary>
+            Container's helper mehtod to change to the next control from the current
+            </summary>
+            <param name="input"></param>
+        </member>
+        <member name="M:ConsoleEx.Container.PrevFocus(ConsoleEx.Control)">
+            <summary>
+            Container's helper mehtod to change to the previous control from the current
+            </summary>
+            <param name="input"></param>
+        </member>
+        <member name="P:ConsoleEx.Container.Id">
+            <summary>
+            Gets container's current Id
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.Container.ControlCount">
+            <summary>
+            Counts the controls/containers on the container
+            </summary>
+        </member>
+        <member name="T:ConsoleEx.Control">
+            <summary>
+            Base class of the controls, which can be added to containers, inherited from ControlBase
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.Control.sbg">
+            <summary>
+            Control's selected state background color
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.Control.sfg">
+            <summary>
+            Control's selected state foreground color
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.Control.cbg">
+            <summary>
+            Control's current state background color
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.Control.cfg">
+            <summary>
+            Control's current state foreground color
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.Control.focusable">
+            <summary>
+            Control can be focused
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.Control.#ctor">
+            <summary>
+            Creates a new instance of control
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.Control.EnableHandlers(System.Boolean)">
+            <summary>
+            Enables/Disables all controls event handlers including focus chaning behaviours
+            </summary>
+            <param name="input"></param>
+        </member>
+        <member name="M:ConsoleEx.Control.Draw">
+            <summary>
+            Redraws the control, overrideable
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.Control.Focus">
+            <summary>
+            Changes the focus to the control, if the control supports it, overrideable
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.Control.GetInput(System.ConsoleKeyInfo)">
+            <summary>
+            Control's input handler, overrideable
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:ConsoleEx.Control.SetParent(ConsoleEx.Container)">
+            <summary>
+            Changes the parent of the control
+            </summary>
+            <param name="input"></param>
+        </member>
+        <member name="M:ConsoleEx.Control.GetParent">
+            <summary>
+            Gets the control's parent, otherwise returns null
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:ConsoleEx.Control.SBg">
+            <summary>
+            Gets/Sets the control's selected state background color
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.Control.SFg">
+            <summary>
+            Gets/Sets the control's selected state foreground color
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.Control.CBg">
+            <summary>
+            Gets/Sets the control's current state foreground color
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.Control.CFg">
+            <summary>
+            Gets/Sets the control's current state foreground color
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.Control.Tab">
+            <summary>
+            Gets/Sets the control's tab
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.Control.Text">
+            <summary>
+            Gets/Sets the control's text
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.Control.Focusable">
+            <summary>
+            Gets if the control is focusable
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.Control.ActiveControl">
+            <summary>
+            Gets the current focused control
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.Control.Active">
+            <summary>
+            Gets the controls' event handler status including focus changing behaviours
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.Control.Id">
+            <summary>
+            Gets control's current Id
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.Control.CanFocus">
+            <summary>
+            Gets if the control can be focused right now
+            </summary>
+        </member>
+        <member name="E:ConsoleEx.Control.KeyHandler">
+            <summary>
+            Keypress handler for the current control
+            </summary>
+        </member>
+        <member name="T:ConsoleEx.Control.KeyPress">
+            <summary>
+            Delegate for the control's keypress event
+            </summary>
+            <param name="sender">Current control</param>
+            <param name="e">Pressed key information</param>
+            <returns></returns>
+        </member>
+        <member name="T:ConsoleEx.Label">
+            <summary>
+            Label, supports multiple lines
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.Label.#ctor">
+            <summary>
+            Creates a new instance of label
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.Label.Draw">
+            <summary>
+            Redraws the label, overrideable
+            </summary>
+        </member>
+        <member name="T:ConsoleEx.TextBox">
+            <summary>
+            TextBox, only supports single line, height is ignored
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.TextBox.#ctor">
+            <summary>
+            Creates a new instance of text box
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.TextBox.Draw">
+            <summary>
+            Redraws the text box, overrideable
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.TextBox.GetInput(System.ConsoleKeyInfo)">
+            <summary>
+            TextBox's input handler, overrideable
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:ConsoleEx.TextBox.MaxLen">
+            <summary>
+            Gets/Sets the maximum length of the text box
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.TextBox.Text">
+            <summary>
+            Gets/Sets the text of the text box
+            </summary>
+        </member>
+        <member name="T:ConsoleEx.Button">
+            <summary>
+            Button, clickable
+            </summary>
+        </member>
+        <member name="T:ConsoleEx.CheckBox">
+            <summary>
+            CheckBox, can be checked and unchecked, height is ignored
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.CheckBox.Draw">
+            <summary>
+            Redraws the check box, overrideable
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.CheckBox.GetInput(System.ConsoleKeyInfo)">
+            <summary>
+            Checkbox's input handler, overrideable
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:ConsoleEx.CheckBox.Check">
+            <summary>
+            Gets/Sets the check box's checked state
+            </summary>
+        </member>
+        <member name="T:ConsoleEx.ListBox">
+            <summary>
+            ListBox, can highlight and select elements
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.ListBox.#ctor">
+            <summary>
+            Creates a new instance of list box
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.ListBox.Draw">
+            <summary>
+            Redraws the list box, overrideable
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.ListBox.GetInput(System.ConsoleKeyInfo)">
+            <summary>
+            ListBox's input handler, overrideable
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:ConsoleEx.ListBox.Idx">
+            <summary>
+            Gets/Sets the current selected index from the list box
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.ListBox.Items">
+            <summary>
+            Gets the items from the list box
+            </summary>
+        </member>
+        <member name="T:ConsoleEx.NumericUpDown">
+            <summary>
+            NumericUpDown, can move between min and max values with specified offset
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.NumericUpDown.#ctor">
+            <summary>
+            Creates a new instance of numeric up-down
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.NumericUpDown.Draw">
+            <summary>
+            Redraws the numeric up-down, overrideable
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.NumericUpDown.GetInput(System.ConsoleKeyInfo)">
+            <summary>
+            NumericUpDowns input handler, overrideable
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:ConsoleEx.NumericUpDown.Min">
+            <summary>
+            Gets/Sets the numeric up-down's minimum value
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.NumericUpDown.Max">
+            <summary>
+            Gets/Sets the numeric up-down's maximum value
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.NumericUpDown.Val">
+            <summary>
+            Gets/Sets the numeric up-down's value
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.NumericUpDown.Offs">
+            <summary>
+            Gets/Sets the numeric up-down's offset
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.NumericUpDown.Format">
+            <summary>
+            Gets/Sets the numeric up-down's number format
+            </summary>
+        </member>
+        <member name="T:ConsoleEx.ProgressBar">
+            <summary>
+            ProgressBar, can display current progress, height is ignored
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.ProgressBar.#ctor">
+            <summary>
+            Creates a new instance of progress bar
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.ProgressBar.Draw">
+            <summary>
+            Redraws the progress bar, overrideable
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.ProgressBar.Min">
+            <summary>
+            Gets/Sets the progress bar's minimum value
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.ProgressBar.Max">
+            <summary>
+            Gets/Sets the progress bar's maximum value
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.ProgressBar.Val">
+            <summary>
+            Gets/Sets the progress bar's value
+            </summary>
+        </member>
+        <member name="T:ConsoleEx.Form">
+            <summary>
+            Extended container with title, borders and shadows
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.Form.#ctor">
+            <summary>
+            Creates a new instance of form
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.Form.Draw">
+            <summary>
+            Redraws the form and all of its controls
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.Form.Border">
+            <summary>
+            Gets/Sets the form's border style
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.Form.Shadow">
+            <summary>
+            Gets/Sets the form's shadow style
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.Form.TFg">
+            <summary>
+            Gets/Sets the form's text foreground color
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.Form.SBg">
+            <summary>
+            Gets/Sets the form's shadow background color
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.Form.SFg">
+            <summary>
+            Gets/Sets the form's shadow foreground color
+            </summary>
+        </member>
+        <member name="P:ConsoleEx.Form.Text">
+            <summary>
+            Gets/Sets the form's text
+            </summary>
+        </member>
+        <member name="T:ConsoleEx.Form.BorderStyle">
+            <summary>
+            Form's border style
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.Form.BorderStyle.None">
+            <summary>
+            No border
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.Form.BorderStyle.Single">
+            <summary>
+            Single line border
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.Form.BorderStyle.Double">
+            <summary>
+            Double line border
+            </summary>
+        </member>
+        <member name="T:ConsoleEx.Form.ShadowStyle">
+            <summary>
+            Form's shadow style
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.Form.ShadowStyle.None">
+            <summary>
+            No shadow
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.Form.ShadowStyle.Full">
+            <summary>
+            Full shadow
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.Form.ShadowStyle.High">
+            <summary>
+            High density shadow
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.Form.ShadowStyle.Med">
+            <summary>
+            Medium density shadow
+            </summary>
+        </member>
+        <member name="F:ConsoleEx.Form.ShadowStyle.Low">
+            <summary>
+            Low density shadow
+            </summary>
+        </member>
+        <member name="T:ConsoleEx.MessageBox">
+            <summary>
+            Simple message box with selectable options
+            </summary>
+        </member>
+        <member name="M:ConsoleEx.MessageBox.Show(System.String,System.String,System.String[])">
+            <summary>
+            Shows the message box
+            </summary>
+            <param name="text">Title</param>
+            <param name="message">Text</param>
+            <param name="buttons">Selectable buttons as string array</param>
+            <returns>Index of the selected button</returns>
+        </member>
+    </members>
+</doc>
